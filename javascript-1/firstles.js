@@ -15,3 +15,8 @@ sum = function (a) {
 
      return func;
 };
+/*
+console.log(sum(1)(2)(3) == 6);
+console.log(sum(1)(2)(3) == 3);
+console.log(+sum(1)(-4)(7));
+ */
