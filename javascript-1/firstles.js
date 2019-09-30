@@ -1,6 +1,7 @@
+"use strict";
 /*Dmitry Molchanov*/
 /*my first homework*/
-sum = function (a=0) {
+var sum = function (a=0) {
 
         let total = a;
 
