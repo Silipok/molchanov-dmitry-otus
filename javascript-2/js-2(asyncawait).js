@@ -28,16 +28,19 @@ function reduc2(a,b) {
     return a+b;
 }
 
-function reducerPromice(asynFunctions,reducerFunc,initialValue) {
+async function reducerPromice(asynFunctions,reducerFunc,initialValue) {
     let accumulator=initialValue;
-    return Promise.all(asynFunctions).then(value => {
-        value.forEach((el)=>accumulator=reducerFunc(el,accumulator));
-        console.log("All promises is ready");
-        console.log(`Result=${accumulator}`);
-    })
+    for(let i=0;i<asynFunctions.length;i++){
+        let el=await asynFunctions[i];
+        accumulator=accumulator+el;
+    }
+    return accumulator;
 }
 
+p=reducerPromice([fn1(3),fn2(4),fn3(2,2000)],reduc2,0);
+p.then(v=>console.log(`result=${v}`));
 
-let res=reducerPromice([fn1(5),fn2(7),fn3(6,5500)],reduc2,0);
+
+let res=reducerPromice([fn1(5),fn2(7),fn3(6,5500)],reducer,1);
 console.log(res);
 //res.then(((val)=>console.log(val));
