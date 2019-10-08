@@ -25,19 +25,17 @@ function fn3(a,delay=1000){
     })
 }
 function reduc2(a,b) {
+    console.log(`res=${a+b}`);
     return a+b;
 }
 
 function reducerPromice(asynFunctions,reducerFunc,initialValue) {
     let accumulator=initialValue;
-    return Promise.all(asynFunctions).then(value => {
-        value.forEach((el)=>accumulator=reducerFunc(el,accumulator));
-        console.log("All promises is ready");
-        console.log(`Result=${accumulator}`);
-    })
+    asynFunctions.forEach((el)=>el.then((res)=>{
+            return Promise.resolve( accumulator=reducerFunc(res,accumulator));
+          }
+      )
+    );
 }
 
-
-let res=reducerPromice([fn1(5),fn2(7),fn3(6,5500)],reduc2,0);
-console.log(res);
-//res.then(((val)=>console.log(val));
+reducerPromice([fn1(3), fn2(5), fn3(7, 3000)], reduc2, 0);
