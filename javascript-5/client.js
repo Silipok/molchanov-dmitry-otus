@@ -13,6 +13,7 @@ function getResult() {
 function getMasResult(n=5) {
     let i=n;
     while (i--){
+        let xhr=new XMLHttpRequest();
         xhr.open('GET', 'http://127.0.0.1:3000', true);
         xhr.send();
         xhr.onreadystatechange=function () {
