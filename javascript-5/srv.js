@@ -12,8 +12,9 @@ const server = http.createServer((req, res) => {
     timeStartReq=new Date();
     setTimeout(()=>{
         timeEndReq=new Date();
+        console.log(`I'm request startms=${timeStartReq.getMilliseconds()} and endms=${timeEndReq.getMilliseconds()}`);
         let diff=timeEndReq.getMilliseconds()-timeStartReq.getMilliseconds();
-        let msg=`Your request started ${timeStartReq.toString()} and was sent to you from server ${timeEndReq.toString()} time to work=${diff}`;
+        let msg=`Your request started ${timeStartReq.toString()} and was sent to you from server ${timeEndReq.toString()} time to work=${Math.abs(diff)}`;
         res.end(msg);
     },500);
 });
