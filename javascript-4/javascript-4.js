@@ -11,7 +11,6 @@ function parcer(str=`{}`) {
     let templ = [];//store for DOM nodes
     templ.push(html`<div class=el-${obj.id}>Hi I'm ${obj.id} component and i'm general parent</div>`);
     while(obj.hasOwnProperty('items')){//do parcing while tree obj has nodes with items props, search in deep
-        debugger
         let i=0;
         while(obj.items.length-i) {//find all children, search in width
             templ.push(createChildren(obj.items[i], obj.id));

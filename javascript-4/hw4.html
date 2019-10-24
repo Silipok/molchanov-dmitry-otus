@@ -3,11 +3,21 @@
 <head>
     <meta charset="UTF-8">
     <title>JS4 Homework</title>
+    <script src="https://unpkg.com/@webcomponents/webcomponentsjs@latest/webcomponents-loader.js"></script>
 </head>
 <body>
+<script src="test.js" type="module"></script>
     <div class="root">
 
     </div>
+    <hr/>
+    <create-tree prop='{
+"id": 1,
+"items": [{
+"id": 2,
+"items": [{ "id": 3 }]
+}]
+} '></create-tree>
 <script src="javascript-4.js" type="module"></script>
 </body>
 </html>
