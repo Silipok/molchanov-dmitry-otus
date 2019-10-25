@@ -3,10 +3,11 @@
 <head>
     <meta charset="UTF-8">
     <title>JS4 Homework</title>
-    <script src="https://unpkg.com/@webcomponents/webcomponentsjs@latest/webcomponents-loader.js"></script>
+    <script src="https://unpkg.com/@webcomponents/webcomponentsjs@latest/webcomponents-loader.js" defer></script>
 </head>
 <body>
 <script src="test.js" type="module"></script>
+<script src="lit.js" type="module"></script>
     <div class="root">
 
     </div>
@@ -18,6 +19,15 @@
 "items": [{ "id": 3 }]
 }]
 } '></create-tree>
+<hr/>
+<hr/>
+<create-super-tree prop='{
+"id": 5,
+"items": [{
+"id": 6,
+"items": [{ "id": 7 }]
+}]
+} '></create-super-tree>
 <script src="javascript-4.js" type="module"></script>
 </body>
 </html>
