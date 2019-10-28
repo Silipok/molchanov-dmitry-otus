@@ -3,7 +3,10 @@ const webpack = require('webpack');
 const ForkTsCheckerWebpackPlugin = require('fork-ts-checker-webpack-plugin');
 
 module.exports = {
-    entry: './src/index.js',
+    resolve: {
+        extensions: ['','ts','tsx','.js','.jsx','.mjs','.json']
+    },
+    entry: path.resolve(__dirname, 'src'),
     output: {
         filename: 'bundle.js',
         path: path.resolve(__dirname, 'dist'),
@@ -41,8 +44,6 @@ module.exports = {
         ],
     },
     plugins: [
-        new ForkTsCheckerWebpackPlugin({
-            reportFiles: ['src/**/*.{ts,tsx}', '!src/skip.ts']
-        })
+        new ForkTsCheckerWebpackPlugin()
     ]
 };

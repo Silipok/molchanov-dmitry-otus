@@ -1,7 +1,14 @@
 import React from 'react'
 
-class ToDoList extends React.Component{
-    constructor(props){
+export interface Props {
+
+}
+interface State {
+    toDos: object[]
+}
+
+class ToDoList extends React.Component<Props, State>{
+    constructor(props: Props){
         super(props);
         this.state={
             toDos: [

@@ -4,6 +4,8 @@
   "description": "",
   "main": "index.js",
   "scripts": {
+    "type-check": "tsc --noEmit",
+    "type-check:watch": "npm run type-check -- --watch",
     "dev": "webpack-dev-server --hot --open",
     "build": "webpack",
     "test": "echo \"Error: no test specified\" && exit 1"
@@ -12,6 +14,9 @@
   "author": "scarferok",
   "license": "ISC",
   "dependencies": {
+    "@types/react": "16.9.3",
+    "@types/react-dom": "16.9.1",
+    "core-js": "^3.3.4",
     "react": "^16.11.0",
     "react-dom": "^16.11.0"
   },
@@ -19,6 +24,7 @@
     "@babel/core": "^7.6.4",
     "@babel/plugin-proposal-class-properties": "^7.5.5",
     "@babel/plugin-proposal-decorators": "^7.6.0",
+    "@babel/plugin-proposal-optional-chaining": "^7.6.0",
     "@babel/preset-env": "^7.6.3",
     "@babel/preset-react": "^7.6.3",
     "@babel/preset-typescript": "^7.6.0",
@@ -28,6 +34,7 @@
     "fork-ts-checker-webpack-plugin": "^2.0.0",
     "react-hot-loader": "^4.12.15",
     "style-loader": "^1.0.0",
+    "typescript": "^3.6.4",
     "webpack": "^4.41.2",
     "webpack-cli": "^3.3.9",
     "webpack-dev-server": "^3.9.0"
