@@ -4,7 +4,7 @@ export interface Props {
 
 }
 interface State {
-    toDos: object[]
+    toDos: {id: number,label: string}[]
 }
 
 class ToDoList extends React.Component<Props, State>{
