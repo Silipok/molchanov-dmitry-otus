@@ -1,3 +1,7 @@
 .idea
 /javascript-4/node_modules
 /*/node_modules
+react-1/node_modules
+react-1/dist
+react-minimal-project/node_modules
+react-minimal-project/dist
