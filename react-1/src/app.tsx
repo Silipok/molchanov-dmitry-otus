@@ -1,6 +1,6 @@
 import React from 'react';
-import InputToDo from "../input";
-import ToDoList from "../toDoList";
+import InputToDo from "./input";
+import ToDoList from "./todolist";
 
 function App() {
     return (

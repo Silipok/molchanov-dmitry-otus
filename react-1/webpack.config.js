@@ -5,36 +5,18 @@ module.exports = {
     resolve: {
         extensions: ['ts','tsx','.js','.jsx','.mjs','.json']
     },
-    entry: path.resolve(__dirname, 'src'),
+    entry: path.resolve(__dirname,'./src/index.tsx'),
     output: {
-        filename: 'bundle.js',
-        path: path.resolve(__dirname, 'dist'),
-        publicPath: '/'
+        filename: 'index.js',
+        path: path.join(__dirname,'/dist'),
     },
     devtool: 'inline-source-map',
     devServer:{
-        contentBase: path.join(__dirname,'/dist'),
-        compress: true,
-        historyApiFallback: true,
         host: '127.0.0.1',
         port: 8080,
-        hot: true
     },
     module: {
         rules: [
-            {
-                test: /\.css$/,
-                use: [
-                    'style-loader',
-                    'css-loader',
-                ],
-            },
-            {
-               test: /\.(png|svg|jpg|gif)$/,
-               use: [
-                   'file-loader'
-               ],
-            },
             {
                 test: /\.j|tsx?$/,
                 exclude: /node_modules/,
@@ -43,6 +25,9 @@ module.exports = {
         ],
     },
     plugins: [
-        new HtmlWebpackPlugin()
+        new HtmlWebpackPlugin({
+            template: './src/index.html'
+        }
+        )
     ]
 };

@@ -1,22 +1,6 @@
 {
   "presets": [
-    ["@babel/preset-env",
-      {
-        "corejs": 3,
-        "useBuiltIns": "usage",
-        "debug": true
-      }
-    ],
     "@babel/preset-react",
-    ["@babel/preset-typescript", {
-      "isTSX": true,
-      "allExtensions": true
-     }]
-    ],
-  "plugins": [
-    ["@babel/plugin-proposal-decorators", { "legacy": true }],
-    ["@babel/plugin-proposal-class-properties", { "loose" : true }],
-    ["react-hot-loader/babel"],
-    "@babel/plugin-proposal-optional-chaining"
-  ]
+    "@babel/preset-typescript"
+    ]
 }
