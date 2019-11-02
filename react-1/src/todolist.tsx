@@ -3,11 +3,11 @@ import React from 'react'
 export interface Props {
 
 }
-interface State {
+export interface State {
     toDos: {id: number,label: string}[]
 }
 
-class ToDoList extends React.Component<Props, State>{
+export class ToDoList extends React.Component<Props, State>{
     constructor(props: Props){
         super(props);
         this.state={
@@ -31,5 +31,3 @@ class ToDoList extends React.Component<Props, State>{
         )
     }
 }
-
-export default ToDoList

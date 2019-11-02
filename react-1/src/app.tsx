@@ -1,8 +1,8 @@
 import React from 'react';
-import InputToDo from "./input";
-import ToDoList from "./todolist";
+import {InputToDo} from "./input";
+import {ToDoList} from "./todolist";
 
-function App() {
+export function App() {
     return (
         <div>
             <h1>Hi it's todo app</h1>
@@ -12,4 +12,3 @@ function App() {
     )
 }
 
-export default App;

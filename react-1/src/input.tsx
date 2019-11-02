@@ -1,6 +1,6 @@
 import React from 'react'
 
-class InputToDo extends React.Component{
+export class InputToDo extends React.Component{
 
     render() {
         return (<form>
@@ -12,5 +12,3 @@ class InputToDo extends React.Component{
         </form>)
     }
 }
-
-export default InputToDo

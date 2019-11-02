@@ -5,10 +5,10 @@ module.exports = {
     resolve: {
         extensions: ['ts','tsx','.js','.jsx','.mjs','.json']
     },
-    entry: path.resolve(__dirname,'./src/index.tsx'),
+    entry: path.resolve(__dirname,'src/index.tsx'),
     output: {
         filename: 'index.js',
-        path: path.join(__dirname,'/dist'),
+        path: path.join(__dirname,'dist'),
     },
     devtool: 'inline-source-map',
     devServer:{
