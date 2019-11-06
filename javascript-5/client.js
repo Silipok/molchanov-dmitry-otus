@@ -1,26 +1,30 @@
-const xhr=new XMLHttpRequest();
+const http = require('http')
+const options = {
+    hostname: '127.0.0.1',
+    port: 8080,
+    path: '/',
+    method: 'GET'
+}
+const req = http.request(options, (res) => {
+    console.log(`statusCode: ${res.statusCode}`)
+    res.on('data', (d) => {
+        process.stdout.write(d+`\nafter we doing ddos\n\n`)
+    })
+});
+req.on('error', (error) => {
+    console.error(error)
+});
+req.end();
 
-function getResult() {
-    xhr.open('GET', 'http://127.0.0.1:3000', true);
-    xhr.send();
-    xhr.onreadystatechange=function () {
-        if(xhr.readyState===XMLHttpRequest.DONE && xhr.status===200){
-            console.log(xhr.response);
-            document.querySelector('.res1').innerHTML+=`<p>${xhr.responseText}</p>`;
-        }
-    }
-};
-function getMasResult(n=5) {
-    let i=n;
-    while (i--){
-        let xhr=new XMLHttpRequest();
-        xhr.open('GET', 'http://127.0.0.1:3000', true);
-        xhr.send();
-        xhr.onreadystatechange=function () {
-            if(xhr.readyState===XMLHttpRequest.DONE && xhr.status===200){
-                console.log(xhr.response);
-                document.querySelector('.mres').innerHTML+=`<p>${xhr.responseText}</p>`;
-            }
-        }
-    }
+for (let i=1;i<100;i++){
+    let masreq = http.request(options, (res) => {
+        console.log(`statusCode: ${res.statusCode}`);
+        res.on('data', (d) => {
+            process.stdout.write(d+` ${i} packet\n`)
+        })
+    });
+    masreq.on('error', (error) => {
+        console.error(error)
+    });
+    masreq.end();
 }
