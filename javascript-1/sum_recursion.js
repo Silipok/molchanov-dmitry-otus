@@ -16,4 +16,4 @@ const Curry = (fn, seed) => {
 };
 
 const _Sum = Curry((x, y) => x + y, 0);
-console.log(_Sum(1)(3)(6)(9)());
+console.log(_Sum());
