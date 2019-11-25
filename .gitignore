@@ -6,3 +6,5 @@ react-1/dist
 react-minimal-project
 react-minimal-project/node_modules
 react-minimal-project/dist
+react-redux/node_modules
+react-redux/dist
