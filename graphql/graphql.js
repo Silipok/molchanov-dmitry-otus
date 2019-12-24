@@ -8,7 +8,8 @@ const getXml=require('./fetch');
 const schema = buildSchema(`
   type Query {
     allNews: [News]!,
-    news(id: ID): News
+    news(id: ID): News,
+    allUsers: [User]!
   }
   type News{
         id: ID!,
@@ -19,8 +20,32 @@ const schema = buildSchema(`
        pubDate: String!,
        category: [String]!
     }
+  type User{
+    id: ID!,
+    subscription: [String]!,
+    login: String!,
+    password: String!
+  }
+  input UserInput{
+    subscription: [String],
+    login: String,
+    password: String
+  }
+  type Mutation{
+    createUser(input: UserInput): User,
+    updateUser(id: ID!,input: UserInput): User
+  }
 `);
 
+const userDB={};
+class User{
+  constructor(id,{subscription,login,password}){
+    this.id=id;
+    this.subscription=subscription;
+    this.login=login,
+    this.password=password
+  }
+}
 const root = { news: async ({id}) => {
         let data=await getXml();
         //console.log(data);
@@ -31,6 +56,25 @@ const root = { news: async ({id}) => {
     allNews: async ()=> {
         let data=await getXml();
         return  data
+    },
+    createUser: ({input})=>{
+      let id=Math.floor(Math.random()*10000);
+      userDB[id]=input;
+      return new User(id,input)
+    },
+    updateUser: ({id,input})=>{
+      if(!userDB[id]){
+        throw new Error('crashed in update root func');
+      }
+      userDB[id]=input;
+      return new User(id,input)
+    },
+    allUsers: ()=>{
+      let users=[];
+      for(let key in userDB){
+        users.push(new User(key,userDB[key]));  
+      }
+      return users
     }
 };
 
