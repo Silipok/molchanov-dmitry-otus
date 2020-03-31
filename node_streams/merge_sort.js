@@ -1,6 +1,6 @@
 const fs = require('fs');
 const path = require('path');
-const FILE_SIZE = 2048; //размер генерируемого файла в байтах
+const FILE_SIZE = 8*1024*100; //размер генерируемого файла в битах
 const MAX_CHUNK_SIZE = FILE_SIZE/2;//размер чанка
 let chunkBuf = Buffer.alloc(1);//однобайтовый буффер для записи из элемента из файла в чанк
 
